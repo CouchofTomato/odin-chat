@@ -1,0 +1,19 @@
+<section>
+  <div class="container">
+    <%= render partial: 'shared/errors', locals: { obj: @room } %>
+    <%= form_with model: @room, local: true do |form| %>
+      <div class="field">
+        <%= form.label :name, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :name, class: 'input' %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= form.submit class: 'button is-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+

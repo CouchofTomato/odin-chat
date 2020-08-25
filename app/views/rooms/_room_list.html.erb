@@ -1,0 +1,34 @@
+<h3 class="subtitle">Room List</h3>
+<div class="field">
+  <%= link_to "Create Room", new_room_path, class: 'button is-link' %>
+</div>
+<% if @rooms.present? %>
+  <aside class="menu">
+    <ul class="menu-list">
+      <% @rooms.each do |room| %>
+        <li>
+          <div class="level">
+            <%= link_to room.name, room_path(room), class: 'room-link' %>
+            <div class="level-right">
+              <%= link_to edit_room_path(room), data: { test_id: edit_test_attribute(room.name) } do %>
+                <span class="icon">
+                  <i class="fas fa-edit"></i>
+                </span>
+              <% end %>
+              <%= link_to room_path(room), method: :delete, data: { confirm: "Are you sure you want to delete this room", test_id: delete_test_attribute(room.name) } do %>
+                <span class="icon">
+                  <i class="fas fa-trash-alt"></i>
+                </span>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% else %>
+  <div class="notification is-info">
+    Please create a room to start chatting
+  </div>
+<% end %>
+

@@ -1,0 +1,18 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.room-link {
+  width: 100%
+}
+
+.message-box {
+  height: 80vh;
+  border: 1px solid #b8b1fc;
+  border-radius: 5px 5px 0 0;
+  overflow-y: scroll
+}
+
+.message-input {
+  flex-grow: 1
+}
