@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "NewRooms", type: :system do
+  before(:example) { login_user }
+
   context 'when valid parameters are submitted through the form' do
     it 'informs the user that the room was successfully created' do
       visit root_path

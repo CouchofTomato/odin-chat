@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @rooms = Room.all
   end
@@ -22,7 +24,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @rooms = Room.all
     @room_messages = @room.room_messages.includes(:user)
-    @room_message = RoomMessage.new
+    @room_message = @room.room_messages.new
   end
 
   def edit
@@ -43,10 +45,10 @@ class RoomsController < ApplicationController
   def destroy
     @room = Room.find(params[:id])
     if @room.destroy
-      flash[:success] = "The room was destroyed"
+      flash[:success] = "Room successfully deleted"
       redirect_to rooms_path
     else
-      flash.now[:error] = "The room could not be destroyed"
+      flash.now[:error] = "The room could not be deleted"
       redirect_to rooms_path
     end
   end

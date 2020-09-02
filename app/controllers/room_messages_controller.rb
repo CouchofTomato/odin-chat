@@ -4,10 +4,10 @@ class RoomMessagesController < ApplicationController
     @room_message = @room.room_messages.build(room_message_params)
     @room_message.user = current_user
     @room_message.save
-    respond_to do |format|
-      format.js
-    end
+    RoomChannel.broadcast_to @room, @room_message.as_json(include: :user)
   end
+
+  private
 
   def room_message_params
     params.require(:room_message).permit(:message)

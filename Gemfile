@@ -49,7 +49,6 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'webdrivers', '~>4.0'
-  gem 'selenium-webdriver'
   gem 'launchy'
 end
 

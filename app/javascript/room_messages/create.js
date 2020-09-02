@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   let form = document.getElementById('message-form')
   if(form) {
     form.addEventListener('ajax:success', (event) => {

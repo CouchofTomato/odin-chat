@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "EditRooms", type: :system do
-  before do
+  before(:example) do
     Room.create(name: 'test room')
+    login_user
   end
 
   context 'when a valid edit is made' do

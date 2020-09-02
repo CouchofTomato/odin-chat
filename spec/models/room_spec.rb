@@ -11,4 +11,8 @@ RSpec.describe Room, type: :model do
         .is_at_least(4).is_at_most(20)
     end
   end
+
+  describe 'associations' do
+    it { is_expected.to have_many :room_messages }
+  end
 end
