@@ -3,6 +3,14 @@ module ApplicationHelper
     bulma_classes.fetch(type, 'is_info')
   end
 
+  def room_id
+    if @room
+      @room.id
+    else
+      ''
+    end
+  end
+
   private
 
   def bulma_classes
