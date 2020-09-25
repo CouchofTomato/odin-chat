@@ -4,7 +4,7 @@ class RoomMessagesController < ApplicationController
     @room_message = @room.room_messages.build(room_message_params)
     @room_message.user = current_user
     @room_message.save
-    RoomChannel.broadcast_to @room, @room_message.as_json(include: :user)
+    ActionCable.server.broadcast 'message', body: @room_message.as_json(include: :user)
   end
 
   private

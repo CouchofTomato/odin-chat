@@ -7,7 +7,10 @@
     <ul class="menu-list">
       <% @rooms.each do |room| %>
         <li>
-          <div class="level">
+          <div id=<%= "room#{room.id}" %> class="level">
+            <span class="invisible">
+              <i class="far fa-comments"></i>
+            </span>
             <%= link_to room.name, room_path(room), class: 'room-link' %>
             <div class="level-right">
               <%= link_to edit_room_path(room), data: { test_id: edit_test_attribute(room.name) } do %>

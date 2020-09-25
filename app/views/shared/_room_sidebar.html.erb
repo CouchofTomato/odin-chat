@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <% if current_user %>
+        <div class="column is-one-fifth">
+          <%= render 'rooms/room_list' %>
+        </div>
+      <% end %>
+      <div class="column">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</section>

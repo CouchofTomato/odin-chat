@@ -2,7 +2,6 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @rooms = Room.all
   end
 
   def new
@@ -22,7 +21,6 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @rooms = Room.all
     @room_messages = @room.room_messages.includes(:user)
     @room_message = @room.room_messages.new
   end
